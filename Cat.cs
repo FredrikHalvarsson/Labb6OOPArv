@@ -20,9 +20,9 @@ namespace Labb6OOPArv
             : base(name, gender, age, color, isFed, sound)
         {
             Type = "Cat";
-            CatProperty = 1;
+            WantsToPlay = true;
         }
-        public int CatProperty { get; set; }
+        public bool WantsToPlay { get; set; }
         public override void Move()
         {
             Console.WriteLine($"{Name} has got the zoomies");
@@ -35,7 +35,7 @@ namespace Labb6OOPArv
                 $"\nAge: {Age}" +
                 $"\nColor: {Color}" +
                 $"\nIs fed: {IsFed}" +
-                $"\nCatproperty:{CatProperty}");
+                $"\nWant's to play: {WantsToPlay}");
             Console.WriteLine($"\n{Name} can:" +
                 "\n1. Make sound" +
                 "\n2. Move" +
@@ -61,7 +61,14 @@ namespace Labb6OOPArv
         }
         public void Play()
         {
-            Console.WriteLine($"{Name} plays with a ball of yarn");
+            if (WantsToPlay==true)
+            {
+                Console.WriteLine($"{Name} plays with a ball of yarn");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} does not want to play");
+            }
         }
     }
 }
