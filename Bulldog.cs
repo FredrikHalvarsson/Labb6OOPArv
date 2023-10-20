@@ -18,12 +18,12 @@ namespace Labb6OOPArv
         {
             Type = "bulldog";
             IsGoodBoy = true;
-            IsThatARat = "Yes";
+            Sleepy = "Yes";
         }
-        public string IsThatARat { get; set; }
-        public void Shake()
+        public string Sleepy { get; set; }
+        public void Drool()
         {
-            Console.WriteLine($"{Name}");
+            Console.WriteLine($"{Name} starts drooling");
         }
         public override void Display()
         {
@@ -32,12 +32,15 @@ namespace Labb6OOPArv
                 $"\nGender: {Gender}" +
                 $"\nAge: {Age}" +
                 $"\nColor: {Color}" +
-                $"\nGood boy={IsGoodBoy}");
+                $"\nGood boy: {IsGoodBoy}" +
+                $"\nIs fed: {IsFed}" +
+                $"\nSleepy {Type}? {Sleepy}");
             Console.WriteLine($"\n{Name} can:" +
                 "\n1. Make sound" +
                 "\n2. Move" +
                 "\n3. Fetch" +
-                "\n4. Shake");
+                "\n4. Drool" +
+                "\n5. Eat");
             string temp = Input.ReadInput();
             switch (temp)
             {
@@ -51,7 +54,10 @@ namespace Labb6OOPArv
                     Fetch();
                     break;
                 case "4":
-                    Shake();
+                    Drool();
+                    break;
+                case "5":
+                    Eat();
                     break;
             }
         }

@@ -35,11 +35,13 @@ namespace Labb6OOPArv
                 $"\nGender: {Gender}" +
                 $"\nAge: {Age}" +
                 $"\nColor: {Color}" +
+                $"\nIs fed: {IsFed}" +
                 $"\nCan talk: {CanTalk}");
-            Console.WriteLine("\n{Name} can:" +
+            Console.WriteLine($"\n{Name} can:" +
                 "\n1. Make sound" +
                 "\n2. Move" +
-                "\n3. Talk");
+                "\n3. Talk" +
+                "\n4. Eat");
 
             string temp = Input.ReadInput();
             switch (temp)
@@ -52,6 +54,9 @@ namespace Labb6OOPArv
                     break;
                 case "3":
                     Talk();
+                    break;
+                case "4":
+                    Eat();
                     break;
             }
         }

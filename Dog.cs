@@ -35,11 +35,13 @@ namespace Labb6OOPArv
                 $"\nGender: {Gender}" +
                 $"\nAge: {Age}" +
                 $"\nColor: {Color}" +
-                $"\nGood boy={IsGoodBoy}");
+                $"\nGood boy: {IsGoodBoy}" +
+                $"\nIs fed: {IsFed}");
             Console.WriteLine($"\n{Name} can:" +
                 "\n1. Make sound" +
                 "\n2. Move" +
-                "\n3. Fetch");
+                "\n3. Fetch" +
+                "\n4. Eat");
             string temp = Input.ReadInput();
             switch (temp)
             {
@@ -51,6 +53,9 @@ namespace Labb6OOPArv
                     break;
                 case "3":
                     Fetch();
+                    break;
+                case "4":
+                    Eat();
                     break;
             }
         }

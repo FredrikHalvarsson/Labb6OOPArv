@@ -18,7 +18,7 @@ namespace Labb6OOPArv
         {
             Type = "chihuahua";
             IsGoodBoy = false;
-            IsThatARat = "Yes";
+            IsThatARat = "Probably";
         }
         public string IsThatARat { get; set; }
         public void Shake()
@@ -32,12 +32,15 @@ namespace Labb6OOPArv
                 $"\nGender: {Gender}" +
                 $"\nAge: {Age}" +
                 $"\nColor: {Color}" +
-                $"\nGood boy={IsGoodBoy}");
+                $"\nGood boy: {IsGoodBoy}" +
+                $"\nIs fed: {IsFed}" +
+                $"\nIs that a rat? {IsThatARat}");
             Console.WriteLine($"\n{Name} can:" +
                 "\n1. Make sound" +
                 "\n2. Move" +
                 "\n3. Fetch" +
-                "\n4. Shake");
+                "\n4. Shake" +
+                "\n5. Eat");
             string temp = Input.ReadInput();
             switch (temp)
             {
@@ -52,6 +55,9 @@ namespace Labb6OOPArv
                     break;
                 case "4":
                     Shake();
+                    break;
+                case "5":
+                    Eat();
                     break;
             }
         }

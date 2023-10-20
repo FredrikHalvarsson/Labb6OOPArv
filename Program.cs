@@ -79,7 +79,7 @@ namespace Labb6OOPArv
                             Console.WriteLine("Add new animal:\n" +
                             "\n 1. New Dog" +
                             "\n 2. New Cat" +
-                            "\n 3. " +
+                            "\n 3. New Bird" +
                             "\n 0. Return");
                             string temp3 = Input.ReadInput();
                             switch (temp3)
@@ -88,13 +88,44 @@ namespace Labb6OOPArv
                                     runNewAnimal = false;
                                     break;
                                 case "1":
-                                    //Skapar en temporär Dog med default värden
-                                    Dog tempDog = new Dog();
-                                    //Skickar in i en överlagrad metod som tilldelar värden till djuret
-                                    AssignAnimalValue(tempDog);
-                                    //Lägger till i hundlistan i classen för listor
-                                    animalList.Animals.Add(tempDog);
-                                    AnimalList.ListLength++;
+                                    bool newDog = true;
+                                    do
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Add new dog\n" +
+                                            "\n1. Chihuahua" +
+                                            "\n2. Bulldog" +
+                                            "\n3. Other" +
+                                            "\n0. Return");
+                                        string temp4 = Input.ReadInput();
+                                        switch (temp4)
+                                        {
+                                            case "0":
+                                                newDog = false;
+                                                break;
+                                            case "1":
+                                                Chihuahua tempChihuahua = new Chihuahua();
+                                                AssignAnimalValue(tempChihuahua);
+                                                animalList.Animals.Add(tempChihuahua);
+                                                AnimalList.ListLength++;
+                                                break;
+                                            case "2":
+                                                Bulldog tempBulldog = new Bulldog();
+                                                AssignAnimalValue(tempBulldog);
+                                                animalList.Animals.Add(tempBulldog);
+                                                AnimalList.ListLength++;
+                                                break;
+                                            case "3":
+                                                //Skapar en temporär Dog med default värden
+                                                Dog tempDog = new Dog();
+                                                //Skickar in i en överlagrad metod som tilldelar värden till djuret
+                                                AssignAnimalValue(tempDog);
+                                                //Lägger till i hundlistan i classen för listor
+                                                animalList.Animals.Add(tempDog);
+                                                AnimalList.ListLength++;
+                                                break;
+                                        }
+                                    } while (newDog);
                                     break;
                                 case "2":
                                     Cat tempCat = new Cat();
@@ -103,8 +134,10 @@ namespace Labb6OOPArv
                                     AnimalList.ListLength++;
                                     break;
                                 case "3":
-                                    
-                                    
+                                    Bird tempBird = new Bird();
+                                    AssignAnimalValue(tempBird);
+                                    animalList.Animals.Add(tempBird);
+                                    AnimalList.ListLength++;
                                     break;
                                 default:
                                     break;
@@ -112,7 +145,8 @@ namespace Labb6OOPArv
                         } while (runNewAnimal);
                         break;
                     case "3":
-
+                        Console.WriteLine("Oops... That did nothing");
+                        Console.ReadKey();
                         break;
                     default:
                         break;
@@ -154,7 +188,74 @@ namespace Labb6OOPArv
             tempDog.GoodCheck(tempDog);
             return tempDog;
         }
+        //överlagring för chihuahua
+        public Dog AssignAnimalValue(Chihuahua tempDog)
+        {
+            Console.WriteLine("Input name:");
+            tempDog.Name = Console.ReadLine();
+            bool loop = true;
+            do
+            {
+                Console.WriteLine("Select gender: \n 1. male\t2. female");
+                string temp = Console.ReadLine();
+                switch (temp)
+                {
+                    case "1":
+                        tempDog.Gender = "male";
+                        loop = false;
+                        break;
+                    case "2":
+                        tempDog.Gender = "female";
+                        loop = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input! \n\n Try again:");
+                        break;
+                }
+            } while (loop);
+            Console.WriteLine("Input age: ");
+            tempDog.Age = Input.NumInput();
 
+            Console.WriteLine("Input color: ");
+            tempDog.Color = Console.ReadLine();
+
+            tempDog.GoodCheck(tempDog);
+            return tempDog;
+        }
+        //Överlagring för bulldog
+        public Dog AssignAnimalValue(Bulldog tempDog)
+        {
+            Console.WriteLine("Input name:");
+            tempDog.Name = Console.ReadLine();
+            bool loop = true;
+            do
+            {
+                Console.WriteLine("Select gender: \n 1. male\t2. female");
+                string temp = Console.ReadLine();
+                switch (temp)
+                {
+                    case "1":
+                        tempDog.Gender = "male";
+                        loop = false;
+                        break;
+                    case "2":
+                        tempDog.Gender = "female";
+                        loop = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input! \n\n Try again:");
+                        break;
+                }
+            } while (loop);
+            Console.WriteLine("Input age: ");
+            tempDog.Age = Input.NumInput();
+
+            Console.WriteLine("Input color: ");
+            tempDog.Color = Console.ReadLine();
+
+            tempDog.GoodCheck(tempDog);
+            return tempDog;
+        }
         //Överlagring för Katter
         public Cat AssignAnimalValue(Cat tempCat)
         {
@@ -179,6 +280,38 @@ namespace Labb6OOPArv
             Console.WriteLine("Input color: ");
             tempCat.Color = Console.ReadLine();
             return tempCat;
+        }
+        public Bird AssignAnimalValue(Bird tempBird)
+        {
+            Console.WriteLine("Input name:");
+            tempBird.Name = Console.ReadLine();
+            bool loop = true;
+            do
+            {
+                Console.WriteLine("Select gender: \n 1. male\t2. female");
+                string temp = Console.ReadLine();
+                switch (temp)
+                {
+                    case "1":
+                        tempBird.Gender = "male";
+                        loop = false;
+                        break;
+                    case "2":
+                        tempBird.Gender = "female";
+                        loop = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input! \n\n Try again:");
+                        break;
+                }
+            } while (loop);
+            Console.WriteLine("Input age: ");
+            tempBird.Age = Input.NumInput();
+
+            Console.WriteLine("Input color: ");
+            tempBird.Color = Console.ReadLine();
+            
+            return tempBird;
         }
     }
 }
